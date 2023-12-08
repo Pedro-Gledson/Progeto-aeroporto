@@ -1,0 +1,36 @@
+<template>
+  <lightning-card icon-name={icone} variant="base">
+    <div slot="title">
+      Lista de aeroportos
+    </div>
+    <div>
+      <!-- Card Body  -->
+      <lightning-combobox 
+      name= "ComponenteAeroporto" 
+      label= "Partida" 
+      value= {aeroPartida} 
+      placeholder= "Selecione Partida" 
+      options={options}
+      onchange={selecionarPartida} onactive={iataDePartida}
+      required></lightning-combobox>
+      
+      <lightning-combobox 
+      name= "ComponenteAeroporto" 
+      label= "Destino " 
+      value= {aeroDestino} 
+      placeholder= "Selecione Destino" 
+      options={options} 
+      onchange={selecionarDestino} onactive={iataDeDestino}
+      required></lightning-combobox>
+
+      <lightning-button 
+        variant="brand"
+        label="Calcular Distância" 
+        onclick={distanciaFinal} 
+      ></lightning-button>
+    </div>
+    <template lwc:if={calculoRealizado}>
+      <p>A distância entre os aeroportos é: {destinoF} km</p>
+    </template>
+  </lightning-card>
+</template>
